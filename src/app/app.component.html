@@ -1,3 +1,83 @@
-<h1>
-  {{title}}
-</h1>
+<div class="mdl-grid" style="padding: 8px 18px;">
+  <div class="mdl-cell mdl-cell--9-col mdl-cell--12-col-tablet mdl-cell--12-col-phone" style="overflow: auto;">
+    <div style="width: 965px;" *ngFor="let slkfjs of arr(26).fill(1); let pos_y = index;">
+      <span data-pos-x="0" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="1" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="2" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="3" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="4" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="5" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="6" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="7" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="8" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="9" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="10" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="11" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="12" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="13" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="14" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="15" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="16" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="17" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="18" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="19" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="20" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="21" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="22" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="23" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="24" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="25" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="26" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="27" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="28" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="29" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="30" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="31" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="32" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="33" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="34" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="35" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="36" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="37" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="38" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="39" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="40" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="41" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="42" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="43" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="44" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="45" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="46" [attr.data-pos-y]="pos_y" class="pixel"></span>
+      <span data-pos-x="47" [attr.data-pos-y]="pos_y" class="pixel"></span>
+
+    </div>
+  </div>
+
+  <div class="mdl-cell mdl-cell--3-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
+    <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+      <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">Control Panel</h2>
+      </div>
+      <div class="mdl-card__supporting-text" (keyup.enter)="paint()">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input [(ngModel)]="x_axis" class="mdl-textfield__input" type="number" id="sample3">
+          <label class="mdl-textfield__label" for="sample3">X Axis</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input [(ngModel)]="y_axis" class="mdl-textfield__input" type="number" id="sample3">
+          <label class="mdl-textfield__label" for="sample3">Y Axis</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input [(ngModel)]="color" class="mdl-textfield__input" type="text" id="sample3">
+          <label class="mdl-textfield__label" for="sample3">Hex Color</label>
+        </div>
+      </div>
+      <div class="mdl-card__actions mdl-card--border">
+        <button (click)="paint()" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+          Paint it
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  public arr = Array;
+  public x_axis = undefined;
+  public y_axis = undefined;
+  public color = undefined;
+  constructor(private elRef:ElementRef) { }
+
+  paint() {
+    this.elRef.nativeElement.querySelector('.pixel[data-pos-x="' + this.x_axis + '"][data-pos-y="' + this.y_axis + '"]').style.background = this.color;
+  }
 }
