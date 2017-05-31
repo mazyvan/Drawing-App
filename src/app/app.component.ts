@@ -14,12 +14,12 @@ export class AppComponent {
     setTimeout(() => this.drawCircle(15, 12, 12), 3000);
   }
 
-  paintPixel(x: number, y: number) {
-    this.elRef.nativeElement.querySelector('.pixel[data-pos-x="' + x + '"][data-pos-y="' + y + '"]').style.background = 'blue';
+  paintPixel(x: number, y: number, color: string) {
+    this.elRef.nativeElement.querySelector('.pixel[data-pos-x="' + x + '"][data-pos-y="' + y + '"]').style.background = color;
   }
 
   btnPaintIt() {
-    this.elRef.nativeElement.querySelector('.pixel[data-pos-x="' + this.x_axis + '"][data-pos-y="' + this.y_axis + '"]').style.background = this.color;
+    this.paintPixel(this.x_axis, this.y_axis, this.color);
   }
 
 
@@ -29,14 +29,14 @@ export class AppComponent {
     let y: number = 0;
     let err = 0;
     while (x >= y) {
-      this.paintPixel(x0 + x, y0 + y);
-      this.paintPixel(x0 + y, y0 + x);
-      this.paintPixel(x0 - y, y0 + x);
-      this.paintPixel(x0 - x, y0 + y);
-      this.paintPixel(x0 - x, y0 - y);
-      this.paintPixel(x0 - y, y0 - x);
-      this.paintPixel(x0 + y, y0 - x);
-      this.paintPixel(x0 + x, y0 - y);
+      this.paintPixel(x0 + x, y0 + y, 'blue');
+      this.paintPixel(x0 + y, y0 + x, 'blue');
+      this.paintPixel(x0 - y, y0 + x, 'blue');
+      this.paintPixel(x0 - x, y0 + y, 'blue');
+      this.paintPixel(x0 - x, y0 - y, 'blue');
+      this.paintPixel(x0 - y, y0 - x, 'blue');
+      this.paintPixel(x0 + y, y0 - x, 'blue');
+      this.paintPixel(x0 + x, y0 - y, 'blue');
 
       y += 1;
       if (err <= 0) {
