@@ -60,11 +60,11 @@
       </div>
       <div class="mdl-card__supporting-text" (keyup.enter)="btnPaintPixel()">
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <input [(ngModel)]="x_axis" class="mdl-textfield__input" type="number" id="sample3">
+          <input [(ngModel)]="x_axis" class="mdl-textfield__input" type="number" min="0" id="sample3">
           <label class="mdl-textfield__label" for="sample3">X Axis</label>
         </div>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <input [(ngModel)]="y_axis" class="mdl-textfield__input" type="number" id="sample3">
+          <input [(ngModel)]="y_axis" class="mdl-textfield__input" type="number" min="0" id="sample3">
           <label class="mdl-textfield__label" for="sample3">Y Axis</label>
         </div>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -79,6 +79,12 @@
         <button (click)="btnCleanPixel()" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
           Clean it
         </button>
+        <button (click)="btnPaintFloodFill()" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+          Fill Area
+        </button>
+        <button (click)="btnCleanPaintFloodFill()" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+          Clean Area
+        </button>
       </div>
     </div>
 
@@ -90,19 +96,19 @@
       </div>
       <div class="mdl-card__supporting-text" (keyup.enter)="btnDrawLineShape()">
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <input [(ngModel)]="line_x1_axis" class="mdl-textfield__input" type="number" id="sample3">
+          <input [(ngModel)]="line_x1_axis" class="mdl-textfield__input" type="number" min="0" id="sample3">
           <label class="mdl-textfield__label" for="sample3">X1 Axis</label>
         </div>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <input [(ngModel)]="line_y1_axis" class="mdl-textfield__input" type="number" id="sample3">
+          <input [(ngModel)]="line_y1_axis" class="mdl-textfield__input" type="number" min="0" id="sample3">
           <label class="mdl-textfield__label" for="sample3">Y1 Axis</label>
         </div>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <input [(ngModel)]="line_x2_axis" class="mdl-textfield__input" type="number" id="sample3">
+          <input [(ngModel)]="line_x2_axis" class="mdl-textfield__input" type="number" min="0" id="sample3">
           <label class="mdl-textfield__label" for="sample3">X2 Axis</label>
         </div>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <input [(ngModel)]="line_y2_axis" class="mdl-textfield__input" type="number" id="sample3">
+          <input [(ngModel)]="line_y2_axis" class="mdl-textfield__input" type="number" min="0" id="sample3">
           <label class="mdl-textfield__label" for="sample3">Y2 Axis</label>
         </div>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -125,19 +131,19 @@
       </div>
       <div class="mdl-card__supporting-text" (keyup.enter)="btnDrawSquareShape()">
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <input [(ngModel)]="square_x1_axis" class="mdl-textfield__input" type="number" id="sample3">
+          <input [(ngModel)]="square_x1_axis" class="mdl-textfield__input" type="number" min="0" id="sample3">
           <label class="mdl-textfield__label" for="sample3">X1 Axis</label>
         </div>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <input [(ngModel)]="square_y1_axis" class="mdl-textfield__input" type="number" id="sample3">
+          <input [(ngModel)]="square_y1_axis" class="mdl-textfield__input" type="number" min="0" id="sample3">
           <label class="mdl-textfield__label" for="sample3">Y1 Axis</label>
         </div>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <input [(ngModel)]="square_x2_axis" class="mdl-textfield__input" type="number" id="sample3">
+          <input [(ngModel)]="square_x2_axis" class="mdl-textfield__input" type="number" min="0" id="sample3">
           <label class="mdl-textfield__label" for="sample3">X2 Axis</label>
         </div>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <input [(ngModel)]="square_y2_axis" class="mdl-textfield__input" type="number" id="sample3">
+          <input [(ngModel)]="square_y2_axis" class="mdl-textfield__input" type="number" min="0" id="sample3">
           <label class="mdl-textfield__label" for="sample3">Y2 Axis</label>
         </div>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -160,15 +166,15 @@
       </div>
       <div class="mdl-card__supporting-text" (keyup.enter)="btnDrawCircleShape()">
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <input [(ngModel)]="circle_x_axis" class="mdl-textfield__input" type="number" id="sample3">
+          <input [(ngModel)]="circle_x_axis" class="mdl-textfield__input" type="number" min="0" id="sample3">
           <label class="mdl-textfield__label" for="sample3">X Axis</label>
         </div>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <input [(ngModel)]="circle_y_axis" class="mdl-textfield__input" type="number" id="sample3">
+          <input [(ngModel)]="circle_y_axis" class="mdl-textfield__input" type="number" min="0" id="sample3">
           <label class="mdl-textfield__label" for="sample3">Y Axis</label>
         </div>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <input [(ngModel)]="circle_radius" class="mdl-textfield__input" type="number" id="sample3">
+          <input [(ngModel)]="circle_radius" class="mdl-textfield__input" type="number" min="0" id="sample3">
           <label class="mdl-textfield__label" for="sample3">Radius</label>
         </div>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">

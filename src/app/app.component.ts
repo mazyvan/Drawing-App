@@ -29,10 +29,18 @@ export class AppComponent {
   public square_color = undefined;
 
   constructor(private elRef: ElementRef) {
-    setTimeout(() => this.drawingFuncitionsTest(), 4000);
+    // setTimeout(() => this.drawingFuncitionsTest(), 4000);
   }
 
   // BASIC FUNCTIONS - BASIC FUNCTIONS - BASIC FUNCTIONS - BASIC FUNCTIONS - BASIC FUNCTIONS
+  getPixelColor(x: number, y: number): string {
+    try {
+      return this.elRef.nativeElement.querySelector('.pixel[data-pos-x="' + x + '"][data-pos-y="' + y + '"]').style.background;
+    } catch(error) {
+      console.log(error);
+    }
+  }
+
   paintPixel(x: number, y: number, color: string) {
     try {
       this.elRef.nativeElement.querySelector('.pixel[data-pos-x="' + x + '"][data-pos-y="' + y + '"]').style.background = color;
@@ -45,6 +53,27 @@ export class AppComponent {
     this.paintPixel(x, y, 'white');
   }
 
+  paintFloodFill(x: number, y: number, targetColor: string, replacementColor: string) {
+    let currentPixelColor = this.getPixelColor(x, y);
+    if (targetColor == replacementColor) return;
+    if (currentPixelColor != targetColor) return;
+
+    this.paintPixel(x, y, replacementColor);
+
+    this.paintFloodFill(x, y + 1, targetColor, replacementColor);
+    this.paintFloodFill(x, y - 1, targetColor, replacementColor);
+    this.paintFloodFill(x - 1, y, targetColor, replacementColor);
+    this.paintFloodFill(x + 1, y, targetColor, replacementColor);
+
+    return;
+  }
+
+  cleanFloodFill(x: number, y: number) {
+    this.paintFloodFill(x, y, this.getPixelColor(x, y), 'white');
+  }
+
+
+
   // BUTTONS - BUTTONS - BUTTONS - BUTTONS - BUTTONS - BUTTONS - BUTTONS - BUTTONS - BUTTONS 
   btnPaintPixel() {
     this.paintPixel(this.x_axis, this.y_axis, this.color);
@@ -52,6 +81,14 @@ export class AppComponent {
 
   btnCleanPixel() {
     this.cleanPixel(this.x_axis, this.y_axis);
+  }
+
+  btnPaintFloodFill() {
+    this.paintFloodFill(this.x_axis, this.y_axis, this.getPixelColor(this.x_axis, this.y_axis), this.color);
+  }
+
+  btnCleanPaintFloodFill() {
+    this.cleanFloodFill(this.x_axis, this.y_axis);
   }
 
   btnDrawLineShape() {
@@ -119,15 +156,18 @@ export class AppComponent {
 
   // UNIT TESTS - UNIT TESTS - UNIT TESTS - UNIT TESTS - UNIT TESTS - UNIT TESTS - UNIT TESTS
   drawingFuncitionsTest() {
+    this.paintPixel(0, 0, 'yellow'); // Paint pixel
     this.drawLineShape(2, 3, 2, 20, 'red'); // Draw vertical line (top-bottom)
     this.drawLineShape(5, 15, 5, 5, 'green'); // Draw vertical line (bottom-top)
     this.drawLineShape(2, 3, 15, 3, 'blue'); // Draw horizontal line (left-right)
     this.drawLineShape(13, 7, 0, 7, 'yellow'); // Draw horizontal line (right-left)
 
-    this.drawLineShape(8, 0, 3, 14, 'pink'); // Draw diagonal line
+    this.drawLineShape(8, 0, 3, 14, 'aqua'); // Draw diagonal line
 
     this.drawCircleShape(17, 9, 6, 'purple'); // Draw circle
 
     this.drawSquareShape(9, 16, 38, 23, 'black'); // Draw square
+
+    this.paintFloodFill(16, 21, this.getPixelColor(16, 21), 'blue'); // Paint Flood Fill
   }
 }
