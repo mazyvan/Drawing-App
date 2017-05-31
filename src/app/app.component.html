@@ -190,6 +190,48 @@
     </div>
 
 
+    <br>
+    <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+      <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">Draw Triangle</h2>
+      </div>
+      <div class="mdl-card__supporting-text" (keyup.enter)="btnDrawTriangleShape()">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input [(ngModel)]="triangle_x1_axis" class="mdl-textfield__input" type="number" min="0" id="sample3">
+          <label class="mdl-textfield__label" for="sample3">X1 Axis</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input [(ngModel)]="triangle_y1_axis" class="mdl-textfield__input" type="number" min="0" id="sample3">
+          <label class="mdl-textfield__label" for="sample3">Y1 Axis</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input [(ngModel)]="triangle_x2_axis" class="mdl-textfield__input" type="number" min="0" id="sample3">
+          <label class="mdl-textfield__label" for="sample3">X2 Axis</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input [(ngModel)]="triangle_y2_axis" class="mdl-textfield__input" type="number" min="0" id="sample3">
+          <label class="mdl-textfield__label" for="sample3">Y2 Axis</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input [(ngModel)]="triangle_x3_axis" class="mdl-textfield__input" type="number" min="0" id="sample3">
+          <label class="mdl-textfield__label" for="sample3">X3 Axis</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input [(ngModel)]="triangle_y3_axis" class="mdl-textfield__input" type="number" min="0" id="sample3">
+          <label class="mdl-textfield__label" for="sample3">Y3 Axis</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input [(ngModel)]="triangle_color" class="mdl-textfield__input" type="text" id="sample3">
+          <label class="mdl-textfield__label" for="sample3">Color</label>
+        </div>
+      </div>
+      <div class="mdl-card__actions mdl-card--border">
+        <button (click)="btnDrawTriangleShape()" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+          Draw it
+        </button>
+      </div>
+    </div>
+
 
   </div>
 </div>

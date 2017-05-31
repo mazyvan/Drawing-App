@@ -28,9 +28,18 @@ export class AppComponent {
   public square_y2_axis = undefined;
   public square_color = undefined;
 
+  public triangle_x1_axis = undefined;
+  public triangle_y1_axis = undefined;
+  public triangle_x2_axis = undefined;
+  public triangle_y2_axis = undefined;
+  public triangle_x3_axis = undefined;
+  public triangle_y3_axis = undefined;
+  public triangle_color = undefined;
+
   constructor(private elRef: ElementRef) {
     // setTimeout(() => this.drawingFuncitionsTest(), 4000);
   }
+
 
   // BASIC FUNCTIONS - BASIC FUNCTIONS - BASIC FUNCTIONS - BASIC FUNCTIONS - BASIC FUNCTIONS
   getPixelColor(x: number, y: number): string {
@@ -73,7 +82,6 @@ export class AppComponent {
   }
 
 
-
   // BUTTONS - BUTTONS - BUTTONS - BUTTONS - BUTTONS - BUTTONS - BUTTONS - BUTTONS - BUTTONS 
   btnPaintPixel() {
     this.paintPixel(this.x_axis, this.y_axis, this.color);
@@ -102,6 +110,11 @@ export class AppComponent {
   btnDrawCircleShape() {
     this.drawCircleShape(this.circle_x_axis, this.circle_y_axis, this.circle_radius, this.circle_color);
   }
+
+  btnDrawTriangleShape() {
+    this.drawTriangleShape(this.triangle_x1_axis, this.triangle_y1_axis, this.triangle_x2_axis, this.triangle_y2_axis, this.triangle_x3_axis, this.triangle_y3_axis, this.triangle_color);
+  }
+
 
   // SHAPES - SHAPES - SHAPES - SHAPES - SHAPES - SHAPES - SHAPES - SHAPES - SHAPES - SHAPES 
   drawCircleShape(x1: number, y1: number, radius: number, color: string) {
@@ -153,6 +166,12 @@ export class AppComponent {
     this.drawLineShape(x1, y2, x1, y1, color);
   }
 
+  drawTriangleShape(x1: number, y1: number, x2: number, y2: number, x3: number, y3: number, color: string) {
+    this.drawLineShape(x1, y1, x2, y2, color);
+    this.drawLineShape(x2, y2, x3, y3, color);
+    this.drawLineShape(x3, y3, x1, y1, color);
+  }
+
 
   // UNIT TESTS - UNIT TESTS - UNIT TESTS - UNIT TESTS - UNIT TESTS - UNIT TESTS - UNIT TESTS
   drawingFuncitionsTest() {
@@ -168,6 +187,8 @@ export class AppComponent {
 
     this.drawSquareShape(9, 16, 38, 23, 'black'); // Draw square
 
-    this.paintFloodFill(16, 21, this.getPixelColor(16, 21), 'blue'); // Paint Flood Fill
+    this.paintFloodFill(16, 21, this.getPixelColor(16, 21), 'blue'); // Fill area
+
+    this.drawTriangleShape(1, 1, 17, 2, 10, 9, 'cyan'); // Paint triangle
   }
 }
