@@ -29,7 +29,7 @@ export class AppComponent {
   public square_color = undefined;
 
   constructor(private elRef: ElementRef) {
-    // setTimeout(() => this.drawingFuncitionsTest(), 4000);
+    setTimeout(() => this.drawingFuncitionsTest(), 4000);
   }
 
   // BASIC FUNCTIONS - BASIC FUNCTIONS - BASIC FUNCTIONS - BASIC FUNCTIONS - BASIC FUNCTIONS
@@ -93,29 +93,19 @@ export class AppComponent {
   }
 
   drawLineShape(x1: number, y1: number, x2: number, y2: number, color: string) {
-    if (y1 == y2 && x1 < x2) {
-      do {
-        this.paintPixel(x1, y1, color);
-        x1++;
-      } while (x1 <= x2)
-    }
-    else if (y1 == y2 && x1 > x2) {
-      do {
-        this.paintPixel(x1, y1, color);
-        x1--;
-      } while (x1 >= x2)
-    }
-    else if (x1 == x2 && y1 < y2) {
-      do {
-        this.paintPixel(x1, y1, color);
-        y1++;
-      } while (y1 <= y2)
-    }
-    else if (x1 == x2 && y1 > y2) {
-      do {
-        this.paintPixel(x1, y1, color);
-        y1--;
-      } while (y1 >= y2)
+    let dx = Math.abs(x2 - x1);
+    let dy = Math.abs(y2 - y1);
+    let sx = (x1 < x2) ? 1 : -1;
+    let sy = (y1 < y2) ? 1 : -1;
+    let err = dx - dy;
+
+    while (true) {
+
+      this.paintPixel(x1, y1, color);
+      if ((x1 == x2) && (y1 == y2)) break;
+      let e2 = 2 * err;
+      if (e2 > -dy) { err -= dy; x1 += sx; }
+      if (e2 < dx) { err += dx; y1 += sy; }
     }
   }
 
@@ -133,6 +123,8 @@ export class AppComponent {
     this.drawLineShape(5, 15, 5, 5, 'green'); // Draw vertical line (bottom-top)
     this.drawLineShape(2, 3, 15, 3, 'blue'); // Draw horizontal line (left-right)
     this.drawLineShape(13, 7, 0, 7, 'yellow'); // Draw horizontal line (right-left)
+
+    this.drawLineShape(8, 0, 3, 14, 'pink'); // Draw diagonal line
 
     this.drawCircleShape(17, 9, 6, 'purple'); // Draw circle
 
